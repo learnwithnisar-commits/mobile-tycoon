@@ -44,7 +44,7 @@ class Engine {
   static double unitCost(List<int> specs) {
     double c = 60;
     for (int i = 0; i < 5; i++) {
-      c += pow(specs[i], 1.6) * 6;
+      c += pow(specs[i], 1.6).toDouble() * 6;
     }
     return c;
   }
@@ -57,14 +57,14 @@ class Engine {
   }
 
   static double researchCost(int fromLevel, double rdMult) =>
-      200000 * pow(fromLevel, 1.7) * rdMult;
+      (200000 * pow(fromLevel, 1.7) * rdMult).toDouble();
 
   static int researchMonths(int fromLevel) => 1 + fromLevel ~/ 3;
 
   static double attractiveness(Phone p, Company c) {
     final agePenalty = p.age > 18 ? pow(0.97, p.age - 18).toDouble() : 1.0;
     final brand = 0.5 + c.awareness / 100;
-    return specScore(p.specs) * brand * agePenalty / pow(p.price / 400, 1.6);
+    return specScore(p.specs) * brand * agePenalty / pow(p.price / 400, 1.6).toDouble();
   }
 
   static double valuationOf(Company c) {
