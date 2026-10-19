@@ -35,7 +35,7 @@ class TitleScreen extends StatelessWidget {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF00E5FF).withValues(alpha: 0.4),
+                        color: const Color(0xFF00E5FF).withOpacity( 0.4),
                         blurRadius: 30,
                         spreadRadius: 2,
                       ),
