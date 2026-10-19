@@ -82,7 +82,8 @@ class DashboardScreen extends StatelessWidget {
                       width: 120,
                       child: LinearProgressIndicator(
                         value: (p.valuation / winValuation)
-                            .clamp(0.0, 1.0),
+                            .clamp(0.0, 1.0)
+                            .toDouble(),
                         backgroundColor: Colors.grey[800],
                         color: accent,
                         minHeight: 6,
