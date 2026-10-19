@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../store.dart';
-import '../game.dart';
 import 'home.dart';
 import 'phones.dart';
 import 'market.dart';
