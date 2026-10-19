@@ -43,7 +43,7 @@ class _LinePainter extends CustomPainter {
     }
     fill.lineTo(pts.last.dx, size.height)..close();
     canvas.drawPath(
-        fill, Paint()..color = color.withValues(alpha: 0.18));
+        fill, Paint()..color = color.withOpacity( 0.18));
     // line
     final path = Path()..moveTo(pts.first.dx, pts.first.dy);
     for (int i = 1; i < pts.length; i++) {
@@ -140,7 +140,7 @@ class _DonutPainter extends CustomPainter {
     final radius = size.width / 2 - 6;
     if (total <= 0) {
       canvas.drawCircle(
-          center, radius, Paint()..color = Colors.grey.withValues(alpha: 0.3));
+          center, radius, Paint()..color = Colors.grey.withOpacity( 0.3));
       return;
     }
     double start = -pi / 2;
