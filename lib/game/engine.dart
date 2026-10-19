@@ -53,7 +53,7 @@ class Engine {
     final q = specScore(specs) / 110; // 0..1
     final value = q * 900 / price;
     final r = 2.2 + q * 2.0 + (value - 1).clamp(-1.0, 1.0) * 1.2;
-    return r.clamp(1.0, 5.0);
+    return r.clamp(1.0, 5.0).toDouble();
   }
 
   static double researchCost(int fromLevel, double rdMult) =>
@@ -251,12 +251,12 @@ class Engine {
       c.lastProfit = profit;
       c.lastUnits = units;
       c.marketShare =
-          totalUnits > 0 ? units / totalUnits * 100 : 0;
+          totalUnits > 0 ? units / totalUnits * 100 : 0.0;
       // age out ancient phones for AI
       if (!c.isPlayer) {
         c.phones.removeWhere((p) => p.age > 24 && c.phones.length > 1);
       }
-      c.awareness = max(0, c.awareness - 1.5);
+      c.awareness = max(0.0, c.awareness - 1.5);
       if (c.cash < bankruptBelow && !c.bankrupt) {
         c.bankrupt = true;
         _log(s, '${c.name} went BANKRUPT!');
@@ -364,7 +364,7 @@ class Engine {
       }
       pick ??= campaigns.first;
       c.cash -= pick.cost;
-      c.awareness = min(100, c.awareness + pick.awarenessBoost);
+      c.awareness = min(100.0, c.awareness + pick.awarenessBoost);
     }
     // factory & workers
     final targetWorkers = c.capacity ~/ 1000;
@@ -401,7 +401,7 @@ class Engine {
     final lucky = candidates[_rnd.nextInt(candidates.length)];
     switch (roll) {
       case 0:
-        lucky.awareness = min(100, lucky.awareness + 10);
+        lucky.awareness = min(100.0, lucky.awareness + 10);
         _log(s, 'Viral review! ${lucky.name} gains buzz (+awareness).');
         break;
       case 1:
@@ -425,7 +425,7 @@ class Engine {
         _log(s, 'Component price drop! Costs -15% for 3 months.');
         break;
       case 5:
-        lucky.awareness = max(0, lucky.awareness - 12);
+        lucky.awareness = max(0.0, lucky.awareness - 12);
         _log(s, 'Bad press hits ${lucky.name} (-awareness).');
         break;
     }
@@ -486,7 +486,7 @@ class Engine {
     if (c.bankrupt) return 'Bankrupt!';
     if (c.cash < camp.cost) return 'Not enough cash';
     c.cash -= camp.cost;
-    c.awareness = min(100, c.awareness + camp.awarenessBoost);
+    c.awareness = min(100.0, c.awareness + camp.awarenessBoost);
     _log(s, '${c.name} ran "${camp.name}" (+${camp.awarenessBoost} awareness).');
     return null;
   }
