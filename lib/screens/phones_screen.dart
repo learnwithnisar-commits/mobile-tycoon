@@ -98,7 +98,7 @@ class _PhoneCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withValues(alpha: 0.15),
+                    color: Colors.amber.withOpacity( 0.15),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(
