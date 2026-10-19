@@ -41,7 +41,8 @@ class _LinePainter extends CustomPainter {
     for (final p in pts) {
       fill.lineTo(p.dx, p.dy);
     }
-    fill.lineTo(pts.last.dx, size.height)..close();
+    fill.lineTo(pts.last.dx, size.height);
+    fill.close();
     canvas.drawPath(
         fill, Paint()..color = color.withOpacity( 0.18));
     // line
