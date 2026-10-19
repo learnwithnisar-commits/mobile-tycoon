@@ -112,7 +112,7 @@ class MarketScreen extends StatelessWidget {
                           LinearProgressIndicator(
                             value: maxSold > 0
                                 ? ph.sold / maxSold
-                                : 0,
+                                : 0.0,
                             color: ownerColor(ph.companyId),
                             backgroundColor: Colors.grey[800],
                             minHeight: 5,
