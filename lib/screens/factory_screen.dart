@@ -23,8 +23,9 @@ class FactoryScreen extends StatelessWidget {
     final p = s.player;
     final accent = const Color(0xFF00E5FF);
     final eff = p.effectiveCapacity;
-    final utilization =
-        eff > 0 ? (p.lastUnits / eff).clamp(0.0, 1.0) : 0.0;
+    final utilization = eff > 0
+        ? (p.lastUnits / eff).clamp(0.0, 1.0).toDouble()
+        : 0.0;
 
     return ListView(
       padding: const EdgeInsets.all(16),
