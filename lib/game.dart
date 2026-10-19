@@ -83,7 +83,7 @@ class Game {
   bool gameOver = false;
   bool won = false;
   String endReason = '';
-  double marketSize = 500000;
+  double marketSize = 150000;
 
   Game(String playerName, int color) {
     player = Company(
